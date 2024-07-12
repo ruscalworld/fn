@@ -1,6 +1,6 @@
 package fn
 
-func Map[I, O comparable](mapper func(I) O, values []I) []O {
+func Map[I, O any](mapper func(I) O, values []I) []O {
 	result := make([]O, len(values))
 
 	for i, v := range values {
@@ -10,7 +10,7 @@ func Map[I, O comparable](mapper func(I) O, values []I) []O {
 	return result
 }
 
-func MapErr[I, O comparable](mapper func(I) (O, error), values []I) ([]O, error) {
+func MapErr[I, O any](mapper func(I) (O, error), values []I) ([]O, error) {
 	result := make([]O, len(values))
 
 	var err error
